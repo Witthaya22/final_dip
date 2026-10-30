@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-เช็คว่าการเทรนไปถึงไหนแล้ว และพร้อมใช้หรือยัง
-    python scripts/check_status.py      (รันจากโฟลเดอร์ final_dip/)
-
-ดูจาก 2 อย่าง:
-    1) runs/<mode>/results.csv  -> เทรนไปกี่ epoch แล้ว และ mAP ล่าสุดเท่าไร
-    2) weights/<mode>_best.pt   -> ถ้ามีไฟล์นี้ แปลว่าเทรนแบบนั้นเสร็จแล้ว (สคริปต์ 03 copy ไว้ตอนจบ)
-"""
-
 import csv
 from pathlib import Path
 

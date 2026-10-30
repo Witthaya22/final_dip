@@ -1,19 +1,10 @@
-# =============================================================
-#  poly.yaml : ไฟล์ตั้งค่า dataset สำหรับ "Polygon" (Instance Segmentation)
-#  ใช้กับโมเดล  yolo26n-seg.pt   (task = segment)
-# =============================================================
-# path  = โฟลเดอร์หลักของ dataset (relative กับโฟลเดอร์ที่รันคำสั่ง -> ให้รันจาก final_dip/)
-# train/val/test = โฟลเดอร์ย่อยใน path  (ข้างในต้องมี images/ และ labels/)
 path: ./datasets/yolo_poly
 train: train
 val: val
 test: test
 
-# จำนวนคลาส
 nc: 4
 
-# ชื่อคลาส  (ต้องใช้คีย์ "names" มี s นะ  ถ้าพิมพ์ "name" YOLO จะไม่อ่าน แล้วตั้งชื่อเป็น class0, class1 ...)
-# ลำดับต้องตรงกับ CLASSES ใน scripts/02_anylabeling_to_yolo.py
 names:
   0: airplane
   1: boat

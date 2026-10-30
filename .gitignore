@@ -1,9 +1,7 @@
-# โฟลเดอร์ YOLO ที่สร้างใหม่ได้ด้วย scripts/02_anylabeling_to_yolo.py
 datasets/yolo_rect/
 datasets/yolo_poly/
 *.cache
 __pycache__/
 .ipynb_checkpoints/
 
-# ไฟล์ annotation ของ COCO (ใหญ่ ~450MB ดาวน์โหลดใหม่ได้ใน notebook 01)
 coco/

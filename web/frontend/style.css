@@ -1,6 +1,3 @@
-/* =====================================================================
-   style.css : หน้าตาเว็บ (รองรับ light / dark mode และหน้าจอมือถือ)
-   ===================================================================== */
 :root {
   --bg: #f5f6f8;
   --panel: #ffffff;
@@ -31,7 +28,7 @@ body {
   font: 15px/1.5 system-ui, -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif;
 }
 
-/* ---------- ส่วนหัว ---------- */
+
 body > header {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
   padding: 20px 24px; border-bottom: 1px solid var(--line); background: var(--panel);
@@ -42,7 +39,7 @@ h1 { margin: 0; font-size: 22px; }
 .pill.ok { color: var(--ok); border-color: currentColor; }
 .pill.bad { color: var(--bad); border-color: currentColor; }
 
-/* ---------- layout 2 คอลัมน์ (มือถือ = 1 คอลัมน์) ---------- */
+
 main {
   display: grid; grid-template-columns: 340px 1fr; gap: 20px;
   padding: 20px 24px; max-width: 1400px; margin: 0 auto;
@@ -57,7 +54,7 @@ main {
 .controls h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 14px 0 8px; }
 .controls h2:not(:first-child) { margin-top: 22px; }
 
-/* กล่องลากวางไฟล์ */
+
 .drop {
   display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
   padding: 26px 12px; border: 2px dashed var(--line); border-radius: 10px; cursor: pointer;
@@ -75,7 +72,7 @@ button#run {
 }
 button#run:disabled { opacity: .5; cursor: default; }
 
-/* ---------- ผลลัพธ์ ---------- */
+
 .results { display: grid; grid-template-columns: minmax(0, 860px); gap: 20px; align-content: start; }
 .empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
 .empty.error { color: var(--bad); }

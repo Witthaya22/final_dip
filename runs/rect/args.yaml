@@ -1,6 +1,6 @@
 task: detect
 mode: train
-model: C:\code\ImageProcessing\yolo\yolo_lab\final_dip\yolo26n.pt
+model: yolo26n.pt
 data: rect.yaml
 epochs: 20
 time: null

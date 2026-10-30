@@ -1,6 +1,6 @@
 task: segment
 mode: train
-model: C:\code\ImageProcessing\yolo\yolo_lab\final_dip\yolo26n-seg.pt
+model: yolo26n-seg.pt
 data: poly.yaml
 epochs: 20
 time: null

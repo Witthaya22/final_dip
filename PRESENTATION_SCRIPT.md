@@ -84,7 +84,7 @@
 
 **บนจอ:** `runs/poly/results.png` และตารางผลใน `README.md`
 > แบบ Polygon มีกราฟ mask loss และ mask mAP เพิ่มมาด้วย เพราะต้องทายรูปร่างของวัตถุด้วย ไม่ใช่แค่กรอบ
-> บนชุด test แบบ Rectangle ได้ box mAP50 = 0.818 ส่วนแบบ Polygon ได้ box mAP50 = 0.791 และ mask mAP50 = 0.798
+> บนชุด test แบบ Rectangle ได้ box mAP50 = 0.811 ส่วนแบบ Polygon ได้ box mAP50 = 0.791 และ mask mAP50 = 0.798
 
 ---
 

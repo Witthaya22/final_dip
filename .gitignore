@@ -4,3 +4,6 @@ datasets/yolo_poly/
 *.cache
 __pycache__/
 .ipynb_checkpoints/
+
+# ไฟล์ annotation ของ COCO (ใหญ่ ~450MB ดาวน์โหลดใหม่ได้ใน notebook 01)
+coco/

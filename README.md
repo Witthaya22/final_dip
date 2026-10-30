@@ -68,6 +68,18 @@ final_dip/
 └── PRESENTATION_SCRIPT.md          สคริปต์อัดคลิปนำเสนอ
 ```
 
+## Notebook ทีละขั้น (สำหรับอัดคลิปอธิบาย) อยู่ใน `scripts/`
+
+แต่ละไฟล์คู่กับสคริปต์ .py ที่ชื่อเดียวกัน รันไว้แล้วและเก็บผลลัพธ์ไว้ในไฟล์ เปิดแล้วเห็นตาราง ภาพ และตัวเลขได้ทันทีโดยไม่ต้องรันใหม่
+
+| Notebook | อธิบายอะไร |
+|---|---|
+| `01_build_dataset_from_coco.ipynb` | เปิดไฟล์ COCO ดูข้างใน, ตารางคัดภาพ 5 เงื่อนไข, ภาพที่ได้, JSON แบบ AnyLabeling, นับ object |
+| `02_anylabeling_to_yolo.ipynb` | คำนวณแปลงพิกัดให้ดูทีละขั้น (rect และ poly), การรวม group_id, แบ่ง train/val/test, วาด label กลับลงภาพเพื่อตรวจ |
+| `03_train.ipynb` | คำสั่งเทรน (ปิดไว้ด้วย `RUN_TRAIN = False`), กราฟ loss/mAP, confusion matrix, ผล test แยกคลาส |
+| `04_predict.ipynb` | ผลลัพธ์ของ YOLO มีอะไรบ้าง, วาดผลเทียบสองแบบ, ผลของค่า conf, ทายถูกกี่ภาพ (rect 52/60, poly 55/60) |
+| `05_web_and_deploy.ipynb` | เรียก API, เปิด server, ดูโครงสร้าง ONNX, เขียนขั้นตอนของ `infer.js` เป็น Python ให้ดู, เช็คเว็บออนไลน์ |
+
 ## สิ่งที่ต้องส่ง อยู่ตรงไหน
 
 | สิ่งที่ส่ง | ไฟล์ |

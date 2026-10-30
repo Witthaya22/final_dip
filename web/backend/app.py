@@ -5,14 +5,14 @@
 =====================================================================
 
 หน้าที่ของหลังบ้าน:
-    - โหลด weight ที่เทรนเสร็จ (weights/rect_best.pt, weights/poly_best.pt) ไว้ในหน่วยความจำ
+    - โหลด weight โมเดล Polygon ที่เทรนเสร็จ (weights/poly_best.pt) ไว้ในหน่วยความจำ
     - รับภาพที่ผู้ใช้อัปโหลดจากหน้าเว็บ  ->  ส่งให้ YOLO ทำนาย
     - ส่งผลกลับเป็น JSON (ชื่อคลาส, ความมั่นใจ, พิกัดกรอบ, พิกัด polygon)
     - เสิร์ฟไฟล์หน้าเว็บ (frontend) ด้วย  -> deploy ที่เดียวใช้ได้ทั้งหน้าบ้านและหลังบ้าน
 
 API ที่มี:
     GET  /api/health    -> เช็คว่า server พร้อม + รายชื่อคลาส
-    POST /api/predict   -> ส่งภาพมาทำนาย  (form-data: file, mode=rect|poly, conf=0.25)
+    POST /api/predict   -> ส่งภาพมาทำนาย  (form-data: file, conf=0.25)
     GET  /docs          -> หน้าเอกสาร API อัตโนมัติของ FastAPI (ลองยิง API ได้เลย)
 
 วิธีรัน (จากโฟลเดอร์ final_dip/):
@@ -45,23 +45,17 @@ MAX_UPLOAD_MB = 10
 
 # ---------------------------------------------------------------
 # โหลดโมเดลครั้งเดียวตอนเปิด server (ถ้าโหลดทุก request จะช้ามาก)
-#   models["rect"] = โมเดลกรอบสี่เหลี่ยม (detect)
-#   models["poly"] = โมเดล polygon (segment)
+# เว็บใช้โมเดล Polygon (segment) อย่างเดียว
 # ---------------------------------------------------------------
-models = {}
-for mode in ("rect", "poly"):
-    w = WEIGHTS_DIR / f"{mode}_best.pt"
-    if w.exists():
-        models[mode] = YOLO(str(w))
-        print(f"[backend] loaded {mode}: {w}")
-    else:
-        print(f"[backend] WARNING: not found {w}")
+WEIGHT = WEIGHTS_DIR / "poly_best.pt"
+model = YOLO(str(WEIGHT)) if WEIGHT.exists() else None
+print(f"[backend] {'loaded' if model else 'WARNING: not found'} {WEIGHT}")
 
 # ---------------------------------------------------------------
 # สร้างแอป FastAPI
 # ---------------------------------------------------------------
 app = FastAPI(title="final_dip YOLO API",
-              description="Upload an image -> YOLO predicts airplane / boat / car / motorcycle")
+              description="Upload an image -> YOLO (Polygon / segment) predicts airplane / boat / car / motorcycle")
 
 # CORS = อนุญาตให้หน้าเว็บที่อยู่คนละโดเมน (เช่น GitHub Pages) เรียก API นี้ได้
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -69,25 +63,23 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 
 @app.get("/api/health")
 def health():
-    """เช็คสถานะ server: โหลดโมเดลอะไรได้บ้าง และมีคลาสอะไร"""
-    any_model = next(iter(models.values()), None)
+    """เช็คสถานะ server: โหลดโมเดลได้ไหม และมีคลาสอะไร"""
     return {
         "status": "ok",
-        "models": list(models.keys()),
-        "classes": list(any_model.names.values()) if any_model else [],
+        "models": ["poly"] if model else [],
+        "classes": list(model.names.values()) if model else [],
     }
 
 
 @app.post("/api/predict")
 async def predict(
     file: UploadFile = File(..., description="ไฟล์ภาพ jpg/png"),
-    mode: str = Form("rect", description="rect = Rectangle, poly = Polygon"),
     conf: float = Form(0.25, description="ความมั่นใจขั้นต่ำ 0-1"),
 ):
-    """รับภาพ 1 ภาพ -> ส่งให้ YOLO -> คืนผลเป็น JSON"""
+    """รับภาพ 1 ภาพ -> ส่งให้ YOLO (Polygon) -> คืนผลเป็น JSON"""
     # ---- 1) ตรวจสอบ input ----
-    if mode not in models:
-        raise HTTPException(400, f"mode '{mode}' not available, use one of {list(models)}")
+    if model is None:
+        raise HTTPException(503, "model not loaded (ไม่พบ weights/poly_best.pt)")
     raw = await file.read()
     if len(raw) > MAX_UPLOAD_MB * 1024 * 1024:
         raise HTTPException(413, f"file too large (max {MAX_UPLOAD_MB} MB)")
@@ -101,13 +93,13 @@ async def predict(
     # ultralytics รับ numpy array แบบ BGR (แบบ OpenCV) -> กลับลำดับสีจาก RGB
     bgr = np.array(img)[:, :, ::-1]
     t0 = time.perf_counter()
-    result = models[mode].predict(bgr, conf=conf, verbose=False)[0]
+    result = model.predict(bgr, imgsz=512, conf=conf, verbose=False)[0]
     ms = (time.perf_counter() - t0) * 1000
 
     # ---- 3) แปลงผลลัพธ์เป็น JSON ----
     names = result.names                      # {0: 'airplane', 1: 'boat', ...}
     boxes = result.boxes                      # กรอบทั้งหมดที่เจอ
-    polys = result.masks.xy if result.masks is not None else None  # polygon (เฉพาะโมเดล seg)
+    polys = result.masks.xy if result.masks is not None else None  # จุด polygon ของแต่ละวัตถุ
 
     detections = []
     for i in range(len(boxes)):
@@ -125,7 +117,7 @@ async def predict(
     detections.sort(key=lambda d: d["confidence"], reverse=True)
 
     return {
-        "mode": mode,
+        "mode": "poly",
         "image_width": img.width,
         "image_height": img.height,
         "inference_ms": round(ms, 1),

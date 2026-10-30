@@ -12,7 +12,7 @@
 | ภาพ | 600 ภาพ (คลาสละ 150) จาก COCO 2017 คัดเฉพาะภาพที่มีคลาสเดียวและวัตถุชัด |
 | Rectangle | `yolo26n.pt` + `rect.yaml` (task = detect) |
 | Polygon | `yolo26n-seg.pt` + `poly.yaml` (task = segment) |
-| เว็บ | FastAPI (หลังบ้าน) + HTML/JS (หน้าบ้าน) อัปโหลดภาพแล้วดูผลการทายด้วยโมเดล **Polygon** (API ยังรองรับทั้ง rect และ poly) |
+| เว็บ | FastAPI (หลังบ้าน) + HTML/JS (หน้าบ้าน) อัปโหลดภาพแล้วดูผลการทายด้วยโมเดล **Polygon** (เว็บใช้แค่ Polygon, Rectangle ใช้ส่งงาน) |
 
 ## จำนวน object (โจทย์กำหนดให้มี ≥ 100 ต่อ label ในชุดที่ใช้เทรน)
 
@@ -41,9 +41,9 @@ mAP50 = ทายตำแหน่งถูก (ซ้อนทับ ≥ 50%) 
 ```
 final_dip/
 ├── rect.yaml / poly.yaml          ไฟล์ตั้งค่า dataset ของแต่ละแบบ
-├── lab_final_rect.ipynb           notebook แบบ Rectangle (โครงเดียวกับ lab_2box.ipynb)
-├── lab_final_poly.ipynb           notebook แบบ Polygon (โครงเดียวกับ lab_2.ipynb)
-├── lab_final_web.ipynb            เปิดเว็บและเรียก API จาก notebook
+├── lab_final_rect.ipynb           เทรน Rectangle (โครงเดียวกับ lab_2box.ipynb)
+├── lab_final_poly.ipynb           เทรน Polygon + export ให้เว็บ (โครงเดียวกับ lab_2.ipynb)
+├── lab_final_web.ipynb            อธิบายเว็บทีละขั้น: หลังบ้าน, หน้าบ้าน, รันโมเดลในเบราว์เซอร์, deploy
 ├── scripts/
 │   ├── 01_build_dataset_from_coco.py   ดึงภาพและ label จาก COCO แล้วเซฟเป็น JSON แบบ AnyLabeling
 │   ├── 02_anylabeling_to_yolo.py       แปลง JSON เป็น YOLO txt และแบ่ง train/val/test
@@ -65,22 +65,35 @@ final_dip/
 ├── weights/rect_best.pt , poly_best.pt   weight ที่ส่งงาน และเป็นตัวที่เว็บโหลดไปใช้
 ├── web/
 │   ├── backend/app.py              REST API (FastAPI)
-│   └── frontend/                   index.html, app.js, infer.js (รันโมเดลในเบราว์เซอร์), style.css, config.js, models/*.onnx
+│   └── frontend/                   index.html, app.js, infer.js (รันโมเดลในเบราว์เซอร์), style.css, config.js, models/poly.onnx
 ├── Dockerfile                      สำหรับ deploy
 └── PRESENTATION_SCRIPT.md          สคริปต์อัดคลิปนำเสนอ
 ```
 
-## Notebook ทีละขั้น (สำหรับอัดคลิปอธิบาย) อยู่ใน `scripts/`
+## Notebook เทรน : `lab_final_rect.ipynb` และ `lab_final_poly.ipynb`
 
-แต่ละไฟล์คู่กับสคริปต์ .py ที่ชื่อเดียวกัน รันไว้แล้วและเก็บผลลัพธ์ไว้ในไฟล์ เปิดแล้วเห็นตาราง ภาพ และตัวเลขได้ทันทีโดยไม่ต้องรันใหม่
+แยกเป็นสองไฟล์ตามแบบของ lab รันจริงไว้แล้วและเก็บผลทุก cell ไว้ในไฟล์ ก่อนทุก cell มีคำอธิบายว่าโค้ดทำอะไร อ่านตอนอัดคลิปได้เลย
 
-| Notebook | อธิบายอะไร |
-|---|---|
-| `01_build_dataset_from_coco.ipynb` | เปิดไฟล์ COCO ดูข้างใน, ตารางคัดภาพ 5 เงื่อนไข, ภาพที่ได้, JSON แบบ AnyLabeling, นับ object |
-| `02_anylabeling_to_yolo.ipynb` | คำนวณแปลงพิกัดให้ดูทีละขั้น (rect และ poly), การรวม group_id, แบ่ง train/val/test, วาด label กลับลงภาพเพื่อตรวจ |
-| `03_train.ipynb` | คำสั่งเทรน (ปิดไว้ด้วย `RUN_TRAIN = False`), กราฟ loss/mAP, confusion matrix, ผล test แยกคลาส |
-| `04_predict.ipynb` | ผลลัพธ์ของ YOLO มีอะไรบ้าง, วาดผลเทียบสองแบบ, ผลของค่า conf, ทายถูกกี่ภาพ (rect 52/60, poly 55/60) |
-| `05_web_and_deploy.ipynb` | เรียก API, เปิด server, ดูโครงสร้าง ONNX, เขียนขั้นตอนของ `infer.js` เป็น Python ให้ดู, เช็คเว็บออนไลน์ |
+| ขั้น | Cell | ทำอะไร |
+|---|---|---|
+| 0 | 1–3 | import, ตั้งค่า, `ultralytics.checks()` |
+| 1 | 4–5 | ดูไฟล์ yaml, นับภาพและ object ต่อคลาส, วาด label จากไฟล์ txt กลับลงภาพ |
+| 2 | 6–7 | โหลดโมเดล pretrained แล้วลองทายก่อนเทรน |
+| 3 | 8 | **เทรน** (อธิบายทุกพารามิเตอร์และค่า loss) |
+| 4 | 9–11 | กราฟผลการเทรน, confusion matrix, mAP ชุด test แยกคลาส |
+| 5 | 12–14 | predict คลาสละ 1 ภาพ, นับว่าทายถูกกี่ภาพ, เซฟผล predict ทั้งชุด test |
+| 6 | 15–17 (เฉพาะ poly) | **export ให้เว็บ:** `.pt` สำหรับหลังบ้าน, `.onnx` สำหรับหน้าเว็บ, ตรวจไฟล์ ONNX, deploy ขึ้น Hugging Face |
+
+## Notebook เว็บ : `lab_final_web.ipynb`
+
+อธิบายเว็บทีละขั้น (มีคำอธิบายก่อนทุก cell และรันไว้แล้ว)
+
+| Part | Cell | อธิบาย |
+|---|---|---|
+| 1 หลังบ้าน | 2–6 | โค้ด `/api/predict`, เปิด server, `GET /api/health`, `POST /api/predict` และความหมายของ JSON, วาดผลจาก JSON แบบ `app.js` |
+| 2 หน้าบ้าน | 7–8 | โครง `index.html`, ลำดับการทำงานของ `app.js`, `config.js` (โหมด api / browser) |
+| 3 รันในเบราว์เซอร์ | 9–14 | ขั้นตอนของ `infer.js` เขียนเป็น Python: letterbox → tensor → รันโมเดล → conf+NMS → แปลงพิกัด → สร้าง mask, เทียบผลกับ ultralytics (ตรงกัน) |
+| 4 Deploy | 15–16 | Hugging Face static Space, สคริปต์ deploy, เช็คเว็บออนไลน์ |
 
 ## สิ่งที่ต้องส่ง อยู่ตรงไหน
 

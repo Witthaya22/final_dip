@@ -27,7 +27,7 @@ const Infer = (() => {
   const IOU_THRES = 0.7;                   // ค่าเดียวกับ default ของ ultralytics
   const sessions = {};                     // โหลดโมเดลครั้งเดียวแล้วเก็บไว้
 
-  // โหลดไฟล์ models/rect.onnx หรือ models/poly.onnx (ครั้งแรกจะช้าหน่อย ~10 MB)
+  // โหลดไฟล์ models/poly.onnx (ครั้งแรกจะช้าหน่อย ~11 MB)
   function getSession(mode) {
     if (!sessions[mode]) {
       ort.env.wasm.wasmPaths = ORT_CDN;    // ไฟล์ .wasm ของ ONNX Runtime โหลดจาก CDN

@@ -104,7 +104,6 @@ async function predict() {
   // โหมด api: ส่งแบบ multipart/form-data (รูปแบบเดียวกับฟอร์มอัปโหลดไฟล์)
   const fd = new FormData();
   fd.append("file", currentFile);
-  fd.append("mode", MODE);
   fd.append("conf", confInput.value);
   const r = await fetch(`${API}/api/predict`, { method: "POST", body: fd });
   if (!r.ok) throw new Error((await r.json()).detail || r.statusText);

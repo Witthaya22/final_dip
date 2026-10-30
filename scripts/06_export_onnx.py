@@ -11,8 +11,7 @@
     ดูโค้ดฝั่งเว็บได้ที่ web/frontend/infer.js
 
 ผลลัพธ์:
-    web/frontend/models/rect.onnx   (โมเดล Rectangle)
-    web/frontend/models/poly.onnx   (โมเดล Polygon)
+    web/frontend/models/poly.onnx   (เว็บใช้โมเดล Polygon อย่างเดียว)
 
 วิธีใช้ (รันจากโฟลเดอร์ final_dip/):
     python scripts/06_export_onnx.py
@@ -32,7 +31,7 @@ IMGSZ = 512  # ต้องตรงกับ IMGSZ ใน infer.js
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for mode in ("rect", "poly"):
+    for mode in ("poly",):
         weight = ROOT / "weights" / f"{mode}_best.pt"
         if not weight.exists():
             print(f"[{mode}] ไม่พบ {weight} -> รัน 03_train.py ก่อน")

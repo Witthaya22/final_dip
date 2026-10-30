@@ -45,7 +45,7 @@ pinned: false
 
 # YOLO Vehicle Detector (final_dip)
 อัปโหลดภาพ แล้ว YOLO จะทายว่าเป็น airplane / boat / car / motorcycle
-ทั้งแบบ Rectangle (detect) และ Polygon (segment)
+ด้วยโมเดล Polygon (segment)
 โมเดลรันในเบราว์เซอร์ด้วย ONNX Runtime Web
 """
 
@@ -55,16 +55,17 @@ def main():
     p.add_argument("--space", required=True, help="เช่น myname/final-dip")
     args = p.parse_args()
 
-    for m in ("rect", "poly"):
-        assert (FRONTEND / "models" / f"{m}.onnx").exists(), f"ไม่พบ models/{m}.onnx -> รัน 06_export_onnx.py ก่อน"
+    assert (FRONTEND / "models" / "poly.onnx").exists(), "ไม่พบ models/poly.onnx -> รัน 06_export_onnx.py ก่อน"
 
     api = HfApi()
     # 1) สร้าง Space แบบ static (exist_ok=True -> ถ้ามีอยู่แล้วก็ใช้ของเดิม)
     api.create_repo(args.space, repo_type="space", space_sdk="static", exist_ok=True)
 
     # 2) อัปโหลดทุกไฟล์ใน web/frontend ไปไว้ที่ root ของ Space
-    #    (index.html, app.js, infer.js, style.css, config.js, samples/, models/*.onnx)
+    #    (index.html, app.js, infer.js, style.css, config.js, models/*.onnx)
+    #    delete_patterns = ลบไฟล์เว็บเก่าบน Space ที่ไม่มีในเครื่องแล้ว (ให้บน Space ตรงกับในเครื่องเสมอ)
     api.upload_folder(repo_id=args.space, repo_type="space", folder_path=str(FRONTEND),
+                      delete_patterns=["*.html", "*.js", "*.css", "samples/*", "models/*"],
                       commit_message="deploy final_dip web")
     api.upload_file(repo_id=args.space, repo_type="space", path_in_repo="README.md",
                     path_or_fileobj=SPACE_README.encode("utf-8"))

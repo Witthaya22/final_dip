@@ -12,7 +12,7 @@
 | ภาพ | 600 ภาพ (คลาสละ 150) จาก COCO 2017 คัดเฉพาะภาพที่มีคลาสเดียวและวัตถุชัด |
 | Rectangle | `yolo26n.pt` + `rect.yaml` (task = detect) |
 | Polygon | `yolo26n-seg.pt` + `poly.yaml` (task = segment) |
-| เว็บ | FastAPI (หลังบ้าน) + HTML/JS (หน้าบ้าน) อัปโหลดภาพแล้วดูผลการทายได้ |
+| เว็บ | FastAPI (หลังบ้าน) + HTML/JS (หน้าบ้าน) อัปโหลดภาพแล้วดูผลการทายด้วยโมเดล **Polygon** (API ยังรองรับทั้ง rect และ poly) |
 
 ## จำนวน object (โจทย์กำหนดให้มี ≥ 100 ต่อ label ในชุดที่ใช้เทรน)
 
@@ -65,7 +65,7 @@ final_dip/
 ├── weights/rect_best.pt , poly_best.pt   weight ที่ส่งงาน และเป็นตัวที่เว็บโหลดไปใช้
 ├── web/
 │   ├── backend/app.py              REST API (FastAPI)
-│   └── frontend/                   index.html, app.js, infer.js (รันโมเดลในเบราว์เซอร์), style.css, config.js, samples/, models/*.onnx
+│   └── frontend/                   index.html, app.js, infer.js (รันโมเดลในเบราว์เซอร์), style.css, config.js, models/*.onnx
 ├── Dockerfile                      สำหรับ deploy
 └── PRESENTATION_SCRIPT.md          สคริปต์อัดคลิปนำเสนอ
 ```

@@ -1,11 +1,11 @@
 // =====================================================================
-//  app.js : โค้ดหน้าบ้านทั้งหมด
+//  app.js : โค้ดหน้าบ้านทั้งหมด (ใช้โมเดล Polygon / segment อย่างเดียว)
 // =====================================================================
 //  ลำดับการทำงาน:
 //    1) เปิดหน้าเว็บ -> checkHealth() ถาม API ว่าพร้อมไหม
-//    2) ผู้ใช้เลือกภาพ (ลากวาง / เลือกไฟล์ / ภาพตัวอย่าง) -> setImage()
-//    3) กด Predict -> runPredict() ส่งภาพไป POST /api/predict
-//    4) ได้ JSON กลับมา -> renderResult() วาดกรอบ/polygon ลงบน <canvas> + ทำตารางผล
+//    2) ผู้ใช้เลือกภาพ (ลากวาง / เลือกไฟล์) -> setImage()
+//    3) กด Predict -> runPredict() ส่งภาพไปให้โมเดล Polygon ทำนาย
+//    4) ได้ JSON กลับมา -> renderResult() วาด polygon/mask ลงบน <canvas> + ทำตารางผล
 //
 //  มี 2 วิธีทำนาย (เลือกอัตโนมัติใน checkHealth):
 //    - "api"     : ส่งภาพไปหลังบ้าน FastAPI (ตอนรันในเครื่องด้วย uvicorn)
@@ -14,8 +14,9 @@
 // =====================================================================
 
 const API = window.API_BASE || "";            // มาจาก config.js
+const MODE = "poly";                          // ใช้โมเดล Polygon (segment) เท่านั้น
 
-// สีประจำแต่ละคลาส (ใช้ทั้งกรอบ, polygon และป้ายชื่อ)
+// สีประจำแต่ละคลาส (ใช้ทั้ง polygon และป้ายชื่อ)
 const COLORS = {
   airplane:   "#2f7de1",
   boat:       "#11a59a",
@@ -24,7 +25,6 @@ const COLORS = {
 };
 // ชื่อภาษาไทยไว้แสดงคู่กับชื่ออังกฤษ
 const THAI = { airplane: "เครื่องบิน", boat: "เรือ", car: "รถยนต์", motorcycle: "มอเตอร์ไซค์" };
-const MODE_LABEL = { rect: "Rectangle (detect)", poly: "Polygon (segment)" };
 
 // ดึง element จากหน้า HTML มาเก็บในตัวแปร
 const $ = (id) => document.getElementById(id);
@@ -45,9 +45,9 @@ async function checkHealth() {
     try {
       const r = await fetch(`${API}/api/health`);
       const j = await r.json();
-      if (!j.models || !j.models.length) throw new Error("no models");
+      if (!(j.models || []).includes(MODE)) throw new Error("no polygon model");
       engine = "api";
-      pill.textContent = `API online · models: ${j.models.join(", ")}`;
+      pill.textContent = "API online · Polygon model";
       pill.className = "pill ok";
       return;
     } catch (e) {
@@ -74,7 +74,7 @@ function setImage(file) {
   img.onload = () => {
     currentImg = img;
     runBtn.disabled = false;
-    // แสดงภาพตัวอย่างก่อนทำนาย
+    // แสดงภาพที่เลือกก่อนทำนาย
     results.innerHTML = "";
     results.appendChild(makeCard("ภาพที่เลือก", null, img));
   };
@@ -91,40 +91,20 @@ fileInput.addEventListener("change", (e) => setImage(e.target.files[0]));
   drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("hover"); }));
 drop.addEventListener("drop", (e) => setImage(e.dataTransfer.files[0]));
 
-// ภาพตัวอย่าง: อ่านรายชื่อจาก samples/samples.json แล้วทำเป็นปุ่มรูปเล็ก ๆ
-async function loadSamples() {
-  try {
-    const list = await (await fetch("samples/samples.json")).json();
-    const box = $("samples");
-    list.forEach((name) => {
-      const b = document.createElement("button");
-      b.className = "thumb";
-      b.title = name;
-      b.innerHTML = `<img src="samples/${name}" alt="${name}" loading="lazy">`;
-      b.onclick = async () => {
-        // แปลงภาพตัวอย่างเป็น File เหมือนผู้ใช้อัปโหลดเอง
-        const blob = await (await fetch(`samples/${name}`)).blob();
-        setImage(new File([blob], name, { type: blob.type || "image/jpeg" }));
-      };
-      box.appendChild(b);
-    });
-  } catch (e) { /* ไม่มีภาพตัวอย่างก็ไม่เป็นไร */ }
-}
-
 // แสดงค่า confidence ข้าง slider
 confInput.addEventListener("input", () => (confVal.textContent = (+confInput.value).toFixed(2)));
 
 // ---------------------------------------------------------------
-// 3) ส่งภาพไปให้ API ทำนาย
+// 3) ส่งภาพไปให้โมเดลทำนาย
 // ---------------------------------------------------------------
-async function callApi(mode) {
+async function predict() {
   // โหมด browser: ไม่ต้องส่งไปไหน รันโมเดลในเครื่องผู้ใช้เลย (ดู infer.js)
-  if (engine === "browser") return Infer.predict(currentImg, mode, +confInput.value);
+  if (engine === "browser") return Infer.predict(currentImg, MODE, +confInput.value);
 
-  // multipart/form-data = รูปแบบเดียวกับฟอร์มอัปโหลดไฟล์
+  // โหมด api: ส่งแบบ multipart/form-data (รูปแบบเดียวกับฟอร์มอัปโหลดไฟล์)
   const fd = new FormData();
   fd.append("file", currentFile);
-  fd.append("mode", mode);
+  fd.append("mode", MODE);
   fd.append("conf", confInput.value);
   const r = await fetch(`${API}/api/predict`, { method: "POST", body: fd });
   if (!r.ok) throw new Error((await r.json()).detail || r.statusText);
@@ -133,15 +113,11 @@ async function callApi(mode) {
 
 async function runPredict() {
   if (!currentFile) return;
-  const mode = document.querySelector("input[name=mode]:checked").value;
-  const modes = mode === "both" ? ["rect", "poly"] : [mode];
   runBtn.disabled = true;
   runBtn.textContent = "กำลังทำนาย…";
   results.innerHTML = "";
   try {
-    // เรียก API พร้อมกัน (ถ้าเลือกเทียบทั้งสองแบบ)
-    const outs = await Promise.all(modes.map(callApi));
-    outs.forEach((out) => results.appendChild(renderResult(out)));
+    results.appendChild(renderResult(await predict()));
   } catch (e) {
     const err = document.createElement("div");
     err.className = "empty error";
@@ -163,7 +139,7 @@ function makeCard(title, subtitle, img) {
   card.className = "card";
   card.innerHTML = `<header><h2>${title}</h2>${subtitle ? `<span>${subtitle}</span>` : ""}</header>`;
   const canvas = document.createElement("canvas");
-  canvas.width = img.naturalWidth;     // ใช้ขนาดจริงของภาพ -> พิกัดจาก API ใช้ได้ตรง ๆ
+  canvas.width = img.naturalWidth;     // ใช้ขนาดจริงของภาพ -> พิกัดจากโมเดลใช้ได้ตรง ๆ
   canvas.height = img.naturalHeight;
   canvas.getContext("2d").drawImage(img, 0, 0);
   card.appendChild(canvas);
@@ -173,7 +149,7 @@ function makeCard(title, subtitle, img) {
 function renderResult(out) {
   const top = out.top_class;
   const headline = top ? `${top} · ${THAI[top] || ""}` : "ไม่พบวัตถุ";
-  const card = makeCard(headline, `${MODE_LABEL[out.mode]} · ${out.count} objects · ${out.inference_ms} ms`, currentImg);
+  const card = makeCard(headline, `${out.count} objects · ${out.inference_ms} ms`, currentImg);
   const canvas = card.querySelector("canvas");
   const ctx = canvas.getContext("2d");
 
@@ -185,10 +161,10 @@ function renderResult(out) {
   // วาดจากมั่นใจน้อย -> มาก เพื่อให้ตัวที่มั่นใจที่สุดอยู่บนสุด
   [...out.detections].reverse().forEach((d) => {
     const color = COLORS[d.class_name] || "#ffcc00";
-    const [x1, y1, x2, y2] = d.box;
+    const [x1, y1] = d.box;
 
     if (d.mask) {
-      // ---- Mask (มาจากโหมด browser): ย้อมสี mask แล้วยืดวาดทับภาพ ----
+      // ---- โหมด browser: ได้ mask เป็นภาพ -> ย้อมสีแล้วยืดวาดทับภาพ ----
       const tint = document.createElement("canvas");
       tint.width = d.mask.canvas.width;
       tint.height = d.mask.canvas.height;
@@ -202,12 +178,8 @@ function renderResult(out) {
       ctx.imageSmoothingEnabled = true;              // ขยายแล้วขอบเนียน
       ctx.drawImage(tint, ...d.mask.src, 0, 0, canvas.width, canvas.height);
       ctx.restore();
-      ctx.strokeStyle = color;
-      ctx.setLineDash([8 * s, 6 * s]);               // กรอบเส้นประบอกขอบเขต
-      ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
-      ctx.setLineDash([]);
     } else if (d.polygon && d.polygon.length > 2) {
-      // ---- Polygon: ระบายสีโปร่งแสง + เส้นขอบ ----
+      // ---- โหมด api: ได้จุด polygon -> ระบายสีโปร่งแสง + เส้นขอบ ----
       ctx.beginPath();
       d.polygon.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
       ctx.closePath();
@@ -215,17 +187,13 @@ function renderResult(out) {
       ctx.fill();
       ctx.strokeStyle = color;
       ctx.stroke();
-    } else {
-      // ---- Rectangle: วาดกรอบสี่เหลี่ยม ----
-      ctx.strokeStyle = color;
-      ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
     }
 
-    // ป้ายชื่อ "car 92%" เหนือกรอบ
+    // ป้ายชื่อ "car 92%" ที่มุมซ้ายบนของวัตถุ
     const text = `${d.class_name} ${(d.confidence * 100).toFixed(0)}%`;
     const tw = ctx.measureText(text).width + 10 * s;
     const th = 22 * s;
-    const ty = y1 - th < 0 ? y1 : y1 - th;  // ถ้าชิดขอบบน ให้ย้ายป้ายเข้าไปในกรอบ
+    const ty = y1 - th < 0 ? y1 : y1 - th;  // ถ้าชิดขอบบน ให้ย้ายป้ายลงมาในภาพ
     ctx.fillStyle = color;
     ctx.fillRect(x1, ty, tw, th);
     ctx.fillStyle = "#fff";
@@ -246,16 +214,13 @@ function renderResult(out) {
 }
 
 // เริ่มทำงานเมื่อเปิดหน้า
-// ทดสอบอัตโนมัติผ่าน URL ได้ เช่น index.html?sample=car_013.jpg&mode=both
+// ทดสอบอัตโนมัติผ่าน URL ได้ เช่น index.html?img=test.jpg (โหลดภาพแล้วกด Predict ให้เอง)
 (async () => {
   await checkHealth();
-  await loadSamples();
-  const q = new URLSearchParams(location.search);
-  if (q.get("sample")) {
-    const m = document.querySelector(`input[name=mode][value=${q.get("mode") || "rect"}]`);
-    if (m) m.checked = true;
-    const blob = await (await fetch(`samples/${q.get("sample")}`)).blob();
-    setImage(new File([blob], q.get("sample"), { type: "image/jpeg" }));
+  const testImg = new URLSearchParams(location.search).get("img");
+  if (testImg) {
+    const blob = await (await fetch(testImg)).blob();
+    setImage(new File([blob], testImg, { type: blob.type || "image/jpeg" }));
     await new Promise((ok) => setTimeout(ok, 300));   // รอภาพโหลด
     await runPredict();
     document.title = "DONE";                         // บอกสคริปต์ทดสอบว่าเสร็จแล้ว

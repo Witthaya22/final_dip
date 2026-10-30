@@ -5,11 +5,13 @@
   =====================================================================
    โครงหน้าเว็บ:
      [ส่วนหัว]    ชื่อโปรเจกต์ + สถานะว่าเชื่อมต่อ API ได้ไหม
-     [แผงซ้าย]   เลือกภาพ (ลากวาง / กดเลือก / ภาพตัวอย่าง) + ตั้งค่า (โหมด, confidence)
-     [แผงขวา]    แสดงผล: ภาพที่วาดกรอบ/polygon + รายการวัตถุที่เจอ
+     [แผงซ้าย]   เลือกภาพ (ลากวาง / กดเลือก) + ตั้งค่า confidence
+     [แผงขวา]    แสดงผล: ภาพที่วาด polygon + รายการวัตถุที่เจอ
+   ใช้โมเดล Polygon (segment) อย่างเดียว
    ไฟล์ที่เกี่ยวข้อง:
      config.js  -> ตั้งค่า URL ของ API (หลังบ้าน)
      app.js     -> โค้ดทั้งหมดที่ทำให้หน้าเว็บทำงาน (เรียก API, วาดผล)
+     infer.js   -> รันโมเดลในเบราว์เซอร์ (ตอนไม่มีหลังบ้าน)
      style.css  -> หน้าตาเว็บ
 -->
 <html lang="th">
@@ -23,7 +25,7 @@
   <header>
     <div>
       <h1>YOLO Vehicle Detector</h1>
-      <p class="sub">final_dip · Rectangle (detect) vs Polygon (segment) · airplane · boat · car · motorcycle</p>
+      <p class="sub">final_dip · Polygon (segment) · airplane · boat · car · motorcycle</p>
     </div>
     <!-- จุดแสดงสถานะ API: app.js จะเปลี่ยนข้อความ/สีให้ -->
     <span id="status" class="pill">connecting…</span>
@@ -40,17 +42,7 @@
         <small>jpg / png ไม่เกิน 10 MB</small>
       </label>
 
-      <h3>หรือลองภาพตัวอย่าง (ชุด test ที่โมเดลไม่เคยเห็น)</h3>
-      <div id="samples" class="samples"></div>
-
       <h2>2. ตั้งค่า</h2>
-      <!-- เลือกโมเดล: rect = กรอบ, poly = polygon, both = เทียบสองแบบ -->
-      <div class="seg" role="radiogroup" aria-label="model">
-        <label><input type="radio" name="mode" value="rect" checked><span>Rectangle</span></label>
-        <label><input type="radio" name="mode" value="poly"><span>Polygon</span></label>
-        <label><input type="radio" name="mode" value="both"><span>เทียบทั้งสอง</span></label>
-      </div>
-
       <!-- confidence threshold: ผลที่มั่นใจต่ำกว่านี้จะไม่แสดง -->
       <label class="slider">
         Confidence ขั้นต่ำ: <b id="confVal">0.25</b>

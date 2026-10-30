@@ -2,6 +2,8 @@
 
 **🌐 เว็บออนไลน์:** https://witthaya22-final-dip.static.hf.space  (หน้า Space: https://huggingface.co/spaces/witthaya22/final-dip)
 
+**💻 โค้ด (GitHub):** https://github.com/Witthaya22/final_dip
+
 **โจทย์:** เทรน YOLO ให้ได้ 2 แบบ คือ Rectangle และ Polygon ใช้อย่างน้อย 4 label และต้องมี object ที่ใช้เทรนอย่างน้อย 100 ชิ้นต่อ label จากนั้นส่ง Weight, ผลการเทรน และผลการ Predict
 
 | | |

@@ -1,0 +1,44 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          41.9,
+          49.1
+        ],
+        [
+          338.3,
+          331.3
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          502.3,
+          25.2
+        ],
+        [
+          640.0,
+          197.2
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "car_068.jpg",
+  "imageData": null,
+  "imageHeight": 398,
+  "imageWidth": 640
+}

@@ -1,0 +1,107 @@
+/* =====================================================================
+   style.css : หน้าตาเว็บ (รองรับ light / dark mode และหน้าจอมือถือ)
+   ===================================================================== */
+:root {
+  --bg: #f5f6f8;
+  --panel: #ffffff;
+  --text: #1c1f24;
+  --muted: #6b7280;
+  --line: #e3e6ea;
+  --accent: #e8582d;
+  --ok: #138a4b;
+  --bad: #c62828;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121418;
+    --panel: #1b1e24;
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+    --line: #2c3038;
+    --ok: #3ccf7f;
+    --bad: #ff6b6b;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif;
+}
+
+/* ---------- ส่วนหัว ---------- */
+body > header {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 20px 24px; border-bottom: 1px solid var(--line); background: var(--panel);
+}
+h1 { margin: 0; font-size: 22px; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.pill { padding: 4px 12px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; white-space: nowrap; }
+.pill.ok { color: var(--ok); border-color: currentColor; }
+.pill.bad { color: var(--bad); border-color: currentColor; }
+
+/* ---------- layout 2 คอลัมน์ (มือถือ = 1 คอลัมน์) ---------- */
+main {
+  display: grid; grid-template-columns: 340px 1fr; gap: 20px;
+  padding: 20px 24px; max-width: 1400px; margin: 0 auto;
+}
+@media (max-width: 820px) {
+  main { grid-template-columns: 1fr; padding: 16px; }
+  body > header { padding: 16px; flex-wrap: wrap; }
+}
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.controls h2 { font-size: 15px; margin: 4px 0 10px; }
+.controls h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 14px 0 8px; }
+.controls h2:not(:first-child) { margin-top: 22px; }
+
+/* กล่องลากวางไฟล์ */
+.drop {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  padding: 26px 12px; border: 2px dashed var(--line); border-radius: 10px; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.drop:hover, .drop.hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.drop small { color: var(--muted); }
+
+/* ภาพตัวอย่าง */
+.samples { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.thumb { padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; cursor: pointer; aspect-ratio: 1; background: var(--line); }
+.thumb:hover { border-color: var(--accent); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ปุ่มเลือกโหมด (segmented control) */
+.seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg label { flex: 1; }
+.seg input { position: absolute; opacity: 0; }
+.seg span { display: block; padding: 8px 4px; text-align: center; cursor: pointer; font-size: 13px; }
+.seg input:checked + span { background: var(--accent); color: #fff; }
+.seg input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.slider { display: block; margin-top: 16px; font-size: 13px; }
+.slider input { width: 100%; accent-color: var(--accent); }
+
+button#run {
+  width: 100%; margin-top: 18px; padding: 12px; border: 0; border-radius: 8px;
+  background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+}
+button#run:disabled { opacity: .5; cursor: default; }
+
+/* ---------- ผลลัพธ์ ---------- */
+.results { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-content: start; }
+.empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
+.empty.error { color: var(--bad); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.card header { padding: 12px 16px; display: flex; flex-direction: column; }
+.card header h2 { margin: 0; font-size: 18px; text-transform: capitalize; }
+.card header span { color: var(--muted); font-size: 13px; }
+.card canvas { display: block; width: 100%; height: auto; background: #000; }
+.card table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.card td { padding: 8px 16px; border-top: 1px solid var(--line); }
+.card td i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; }
+.card td small { color: var(--muted); }
+.card td.num { text-align: right; font-variant-numeric: tabular-nums; width: 70px; }
+.bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; min-width: 60px; }
+.bar span { display: block; height: 100%; }

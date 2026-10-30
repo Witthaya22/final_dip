@@ -1,0 +1,252 @@
+
+image 1/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_007.jpg: 480x512 1 airplane, 76.3ms
+image 2/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_008.jpg: 352x512 1 airplane, 66.5ms
+image 3/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_009.jpg: 448x512 1 airplane, 84.5ms
+image 4/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_023.jpg: 352x512 1 airplane, 46.2ms
+image 5/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_024.jpg: 352x512 1 airplane, 1 car, 48.3ms
+image 6/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_027.jpg: 352x512 1 airplane, 46.6ms
+image 7/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_029.jpg: 352x512 1 airplane, 46.3ms
+image 8/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_036.jpg: 384x512 2 airplanes, 80.5ms
+image 9/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_056.jpg: 352x512 1 airplane, 44.5ms
+image 10/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_058.jpg: 352x512 1 airplane, 48.4ms
+image 11/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_060.jpg: 288x512 1 airplane, 63.9ms
+image 12/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_063.jpg: 320x512 1 airplane, 65.6ms
+image 13/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_071.jpg: 384x512 1 airplane, 39.8ms
+image 14/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_109.jpg: 352x512 3 airplanes, 45.4ms
+image 15/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\airplane_140.jpg: 416x512 1 airplane, 79.3ms
+image 16/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_001.jpg: 352x512 1 boat, 56.1ms
+image 17/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_028.jpg: 352x512 3 boats, 45.9ms
+image 18/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_040.jpg: 512x512 1 airplane, 3 boats, 170.7ms
+image 19/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_042.jpg: 384x512 1 motorcycle, 51.9ms
+image 20/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_046.jpg: 352x512 3 boats, 50.4ms
+image 21/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_051.jpg: 512x480 2 boats, 101.6ms
+image 22/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_068.jpg: 384x512 1 boat, 50.2ms
+image 23/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_077.jpg: 384x512 2 boats, 47.3ms
+image 24/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_083.jpg: 512x352 2 boats, 85.6ms
+image 25/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_096.jpg: 384x512 1 boat, 52.0ms
+image 26/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_129.jpg: 384x512 4 boats, 50.8ms
+image 27/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_130.jpg: 320x512 2 boats, 44.5ms
+image 28/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_136.jpg: 416x512 (no detections), 53.0ms
+image 29/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_139.jpg: 352x512 1 boat, 44.5ms
+image 30/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\boat_147.jpg: 384x512 1 boat, 50.8ms
+image 31/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_013.jpg: 352x512 3 cars, 51.9ms
+image 32/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_015.jpg: 384x512 2 cars, 46.9ms
+image 33/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_016.jpg: 512x416 1 car, 82.1ms
+image 34/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_040.jpg: 512x416 4 cars, 45.2ms
+image 35/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_041.jpg: 352x512 2 cars, 44.3ms
+image 36/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_049.jpg: 512x384 1 boat, 1 car, 75.8ms
+image 37/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_056.jpg: 352x512 4 cars, 45.0ms
+image 38/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_076.jpg: 416x512 1 car, 49.4ms
+image 39/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_081.jpg: 352x512 2 cars, 45.2ms
+image 40/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_123.jpg: 352x512 1 car, 43.5ms
+image 41/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_129.jpg: 384x512 1 car, 46.7ms
+image 42/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_136.jpg: 384x512 4 cars, 45.9ms
+image 43/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_139.jpg: 384x512 1 car, 47.0ms
+image 44/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_142.jpg: 384x512 (no detections), 55.3ms
+image 45/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\car_146.jpg: 384x512 (no detections), 47.8ms
+image 46/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_007.jpg: 352x512 1 motorcycle, 45.5ms
+image 47/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_010.jpg: 352x512 1 motorcycle, 43.1ms
+image 48/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_050.jpg: 384x512 2 motorcycles, 46.6ms
+image 49/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_052.jpg: 352x512 1 motorcycle, 43.7ms
+image 50/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_057.jpg: 352x512 1 boat, 1 motorcycle, 42.0ms
+image 51/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_058.jpg: 512x512 1 motorcycle, 52.4ms
+image 52/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_059.jpg: 352x512 1 motorcycle, 44.7ms
+image 53/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_072.jpg: 384x512 1 motorcycle, 46.4ms
+image 54/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_079.jpg: 352x512 (no detections), 43.3ms
+image 55/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_085.jpg: 352x512 1 motorcycle, 43.4ms
+image 56/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_090.jpg: 384x512 2 motorcycles, 44.8ms
+image 57/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_098.jpg: 416x512 (no detections), 46.0ms
+image 58/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_103.jpg: 320x512 1 motorcycle, 41.7ms
+image 59/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_118.jpg: 416x512 1 motorcycle, 46.8ms
+image 60/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_rect\test\images\motorcycle_121.jpg: 384x512 (no detections), 79.4ms
+Speed: 2.0ms preprocess, 55.3ms inference, 1.3ms postprocess per image at shape (1, 3, 384, 512)
+Results saved to [1mC:\code\ImageProcessing\yolo\yolo_lab\final_dip\runs\predict_rect[0m
+
+===== RECT =====
+  airplane_007.jpg     -> airplane(0.94)
+  airplane_008.jpg     -> airplane(0.94)
+  airplane_009.jpg     -> airplane(0.50)
+  airplane_023.jpg     -> airplane(0.82)
+  airplane_024.jpg     -> airplane(0.89), car(0.27)
+  airplane_027.jpg     -> airplane(0.49)
+  airplane_029.jpg     -> airplane(0.96)
+  airplane_036.jpg     -> airplane(0.84), airplane(0.54)
+  airplane_056.jpg     -> airplane(0.96)
+  airplane_058.jpg     -> airplane(0.95)
+  airplane_060.jpg     -> airplane(0.97)
+  airplane_063.jpg     -> airplane(0.94)
+  airplane_071.jpg     -> airplane(0.98)
+  airplane_109.jpg     -> airplane(0.76), airplane(0.75), airplane(0.72)
+  airplane_140.jpg     -> airplane(0.96)
+  boat_001.jpg         -> boat(0.95)
+  boat_028.jpg         -> boat(0.80), boat(0.79), boat(0.73)
+  boat_040.jpg         -> boat(0.72), boat(0.65), boat(0.53), airplane(0.46)
+  boat_042.jpg         -> motorcycle(0.58)
+  boat_046.jpg         -> boat(0.57), boat(0.39), boat(0.28)
+  boat_051.jpg         -> boat(0.84), boat(0.71)
+  boat_068.jpg         -> boat(0.67)
+  boat_077.jpg         -> boat(0.94), boat(0.67)
+  boat_083.jpg         -> boat(0.31), boat(0.30)
+  boat_096.jpg         -> boat(0.57)
+  boat_129.jpg         -> boat(0.71), boat(0.62), boat(0.33), boat(0.31)
+  boat_130.jpg         -> boat(0.57), boat(0.46)
+  boat_136.jpg         -> -
+  boat_139.jpg         -> boat(0.84)
+  boat_147.jpg         -> boat(0.29)
+  car_013.jpg          -> car(0.92), car(0.76), car(0.32)
+  car_015.jpg          -> car(0.97), car(0.90)
+  car_016.jpg          -> car(0.75)
+  car_040.jpg          -> car(0.98), car(0.59), car(0.35), car(0.32)
+  car_041.jpg          -> car(0.75), car(0.63)
+  car_049.jpg          -> boat(0.48), car(0.43)
+  car_056.jpg          -> car(0.89), car(0.77), car(0.65), car(0.57)
+  car_076.jpg          -> car(0.84)
+  car_081.jpg          -> car(0.87), car(0.78)
+  car_123.jpg          -> car(0.48)
+  car_129.jpg          -> car(0.97)
+  car_136.jpg          -> car(0.84), car(0.32), car(0.32), car(0.29)
+  car_139.jpg          -> car(0.97)
+  car_142.jpg          -> -
+  car_146.jpg          -> -
+  motorcycle_007.jpg   -> motorcycle(0.89)
+  motorcycle_010.jpg   -> motorcycle(0.94)
+  motorcycle_050.jpg   -> motorcycle(0.51), motorcycle(0.47)
+  motorcycle_052.jpg   -> motorcycle(0.97)
+  motorcycle_057.jpg   -> motorcycle(0.94), boat(0.77)
+  motorcycle_058.jpg   -> motorcycle(0.93)
+  motorcycle_059.jpg   -> motorcycle(0.96)
+  motorcycle_072.jpg   -> motorcycle(0.92)
+  motorcycle_079.jpg   -> -
+  motorcycle_085.jpg   -> motorcycle(0.96)
+  motorcycle_090.jpg   -> motorcycle(0.93), motorcycle(0.51)
+  motorcycle_098.jpg   -> -
+  motorcycle_103.jpg   -> motorcycle(0.93)
+  motorcycle_118.jpg   -> motorcycle(0.95)
+  motorcycle_121.jpg   -> -
+saved images -> runs/predict_rect/
+
+image 1/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_007.jpg: 480x512 1 airplane, 72.3ms
+image 2/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_008.jpg: 352x512 1 airplane, 81.5ms
+image 3/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_009.jpg: 448x512 3 airplanes, 151.8ms
+image 4/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_023.jpg: 352x512 1 airplane, 81.2ms
+image 5/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_024.jpg: 352x512 1 airplane, 62.5ms
+image 6/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_027.jpg: 352x512 1 airplane, 61.9ms
+image 7/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_029.jpg: 352x512 1 airplane, 58.4ms
+image 8/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_036.jpg: 384x512 1 airplane, 82.1ms
+image 9/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_056.jpg: 352x512 1 airplane, 57.2ms
+image 10/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_058.jpg: 352x512 1 airplane, 58.6ms
+image 11/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_060.jpg: 288x512 1 airplane, 65.5ms
+image 12/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_063.jpg: 320x512 1 airplane, 63.9ms
+image 13/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_071.jpg: 384x512 1 airplane, 61.7ms
+image 14/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_109.jpg: 352x512 5 airplanes, 58.9ms
+image 15/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\airplane_140.jpg: 416x512 1 airplane, 73.5ms
+image 16/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_001.jpg: 352x512 1 boat, 56.8ms
+image 17/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_028.jpg: 352x512 4 boats, 57.7ms
+image 18/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_040.jpg: 512x512 1 airplane, 5 boats, 83.5ms
+image 19/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_042.jpg: 384x512 2 boats, 1 car, 59.7ms
+image 20/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_046.jpg: 352x512 4 boats, 56.7ms
+image 21/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_051.jpg: 512x480 1 boat, 70.8ms
+image 22/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_068.jpg: 384x512 1 boat, 61.0ms
+image 23/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_077.jpg: 384x512 1 boat, 95.0ms
+image 24/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_083.jpg: 512x352 1 boat, 80.2ms
+image 25/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_096.jpg: 384x512 1 boat, 84.4ms
+image 26/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_129.jpg: 384x512 3 boats, 68.6ms
+image 27/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_130.jpg: 320x512 1 boat, 69.7ms
+image 28/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_136.jpg: 416x512 (no detections), 67.4ms
+image 29/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_139.jpg: 352x512 1 boat, 55.5ms
+image 30/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\boat_147.jpg: 384x512 1 boat, 67.8ms
+image 31/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_013.jpg: 352x512 2 cars, 67.6ms
+image 32/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_015.jpg: 384x512 2 cars, 71.3ms
+image 33/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_016.jpg: 512x416 1 car, 92.2ms
+image 34/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_040.jpg: 512x416 2 cars, 78.5ms
+image 35/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_041.jpg: 352x512 2 cars, 63.5ms
+image 36/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_049.jpg: 512x384 1 car, 72.5ms
+image 37/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_056.jpg: 352x512 4 cars, 61.6ms
+image 38/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_076.jpg: 416x512 1 car, 70.6ms
+image 39/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_081.jpg: 352x512 3 cars, 97.0ms
+image 40/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_123.jpg: 352x512 (no detections), 60.4ms
+image 41/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_129.jpg: 384x512 1 car, 67.5ms
+image 42/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_136.jpg: 384x512 1 car, 67.0ms
+image 43/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_139.jpg: 384x512 1 car, 60.9ms
+image 44/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_142.jpg: 384x512 1 car, 60.1ms
+image 45/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\car_146.jpg: 384x512 (no detections), 60.6ms
+image 46/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_007.jpg: 352x512 1 motorcycle, 56.7ms
+image 47/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_010.jpg: 352x512 1 motorcycle, 51.7ms
+image 48/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_050.jpg: 384x512 2 motorcycles, 59.6ms
+image 49/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_052.jpg: 352x512 1 motorcycle, 57.1ms
+image 50/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_057.jpg: 352x512 3 boats, 1 motorcycle, 55.4ms
+image 51/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_058.jpg: 512x512 2 motorcycles, 81.6ms
+image 52/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_059.jpg: 352x512 1 motorcycle, 65.4ms
+image 53/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_072.jpg: 384x512 1 motorcycle, 58.3ms
+image 54/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_079.jpg: 352x512 1 motorcycle, 69.7ms
+image 55/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_085.jpg: 352x512 1 motorcycle, 59.8ms
+image 56/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_090.jpg: 384x512 1 motorcycle, 57.8ms
+image 57/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_098.jpg: 416x512 (no detections), 62.3ms
+image 58/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_103.jpg: 320x512 1 motorcycle, 49.7ms
+image 59/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_118.jpg: 416x512 1 motorcycle, 60.6ms
+image 60/60 C:\code\ImageProcessing\yolo\yolo_lab\final_dip\datasets\yolo_poly\test\images\motorcycle_121.jpg: 384x512 3 motorcycles, 60.4ms
+Speed: 2.6ms preprocess, 68.1ms inference, 2.7ms postprocess per image at shape (1, 3, 384, 512)
+Results saved to [1mC:\code\ImageProcessing\yolo\yolo_lab\final_dip\runs\predict_poly[0m
+
+===== POLY =====
+  airplane_007.jpg     -> airplane(0.96)
+  airplane_008.jpg     -> airplane(0.97)
+  airplane_009.jpg     -> airplane(0.96), airplane(0.63), airplane(0.57)
+  airplane_023.jpg     -> airplane(0.96)
+  airplane_024.jpg     -> airplane(0.93)
+  airplane_027.jpg     -> airplane(0.89)
+  airplane_029.jpg     -> airplane(0.96)
+  airplane_036.jpg     -> airplane(0.95)
+  airplane_056.jpg     -> airplane(0.97)
+  airplane_058.jpg     -> airplane(0.96)
+  airplane_060.jpg     -> airplane(0.98)
+  airplane_063.jpg     -> airplane(0.98)
+  airplane_071.jpg     -> airplane(0.98)
+  airplane_109.jpg     -> airplane(0.96), airplane(0.92), airplane(0.86), airplane(0.55), airplane(0.28)
+  airplane_140.jpg     -> airplane(0.98)
+  boat_001.jpg         -> boat(0.96)
+  boat_028.jpg         -> boat(0.87), boat(0.79), boat(0.63), boat(0.37)
+  boat_040.jpg         -> boat(0.94), boat(0.72), boat(0.60), boat(0.56), airplane(0.44), boat(0.32)
+  boat_042.jpg         -> car(0.47), boat(0.32), boat(0.29)
+  boat_046.jpg         -> boat(0.89), boat(0.61), boat(0.55), boat(0.26)
+  boat_051.jpg         -> boat(0.70)
+  boat_068.jpg         -> boat(0.75)
+  boat_077.jpg         -> boat(0.93)
+  boat_083.jpg         -> boat(0.67)
+  boat_096.jpg         -> boat(0.81)
+  boat_129.jpg         -> boat(0.55), boat(0.31), boat(0.30)
+  boat_130.jpg         -> boat(0.27)
+  boat_136.jpg         -> -
+  boat_139.jpg         -> boat(0.68)
+  boat_147.jpg         -> boat(0.52)
+  car_013.jpg          -> car(0.94), car(0.79)
+  car_015.jpg          -> car(0.94), car(0.84)
+  car_016.jpg          -> car(0.73)
+  car_040.jpg          -> car(0.97), car(0.64)
+  car_041.jpg          -> car(0.92), car(0.57)
+  car_049.jpg          -> car(0.86)
+  car_056.jpg          -> car(0.93), car(0.81), car(0.60), car(0.26)
+  car_076.jpg          -> car(0.42)
+  car_081.jpg          -> car(0.73), car(0.26), car(0.25)
+  car_123.jpg          -> -
+  car_129.jpg          -> car(0.90)
+  car_136.jpg          -> car(0.72)
+  car_139.jpg          -> car(0.95)
+  car_142.jpg          -> car(0.28)
+  car_146.jpg          -> -
+  motorcycle_007.jpg   -> motorcycle(0.94)
+  motorcycle_010.jpg   -> motorcycle(0.93)
+  motorcycle_050.jpg   -> motorcycle(0.78), motorcycle(0.52)
+  motorcycle_052.jpg   -> motorcycle(0.93)
+  motorcycle_057.jpg   -> motorcycle(0.91), boat(0.86), boat(0.49), boat(0.39)
+  motorcycle_058.jpg   -> motorcycle(0.69), motorcycle(0.62)
+  motorcycle_059.jpg   -> motorcycle(0.86)
+  motorcycle_072.jpg   -> motorcycle(0.95)
+  motorcycle_079.jpg   -> motorcycle(0.83)
+  motorcycle_085.jpg   -> motorcycle(0.96)
+  motorcycle_090.jpg   -> motorcycle(0.92)
+  motorcycle_098.jpg   -> -
+  motorcycle_103.jpg   -> motorcycle(0.95)
+  motorcycle_118.jpg   -> motorcycle(0.89)
+  motorcycle_121.jpg   -> motorcycle(0.89), motorcycle(0.66), motorcycle(0.50)
+saved images -> runs/predict_poly/

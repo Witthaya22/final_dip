@@ -1,0 +1,44 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "boat",
+      "text": "",
+      "points": [
+        [
+          309.2,
+          239.5
+        ],
+        [
+          457.2,
+          358.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "boat",
+      "text": "",
+      "points": [
+        [
+          0.0,
+          176.4
+        ],
+        [
+          322.6,
+          369.8
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "boat_125.jpg",
+  "imageData": null,
+  "imageHeight": 427,
+  "imageWidth": 640
+}

@@ -1,0 +1,6 @@
+# โฟลเดอร์ YOLO ที่สร้างใหม่ได้ด้วย scripts/02_anylabeling_to_yolo.py
+datasets/yolo_rect/
+datasets/yolo_poly/
+*.cache
+__pycache__/
+.ipynb_checkpoints/

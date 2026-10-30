@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          8.1,
+          104.4
+        ],
+        [
+          600.3,
+          246.7
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_118.jpg",
+  "imageData": null,
+  "imageHeight": 360,
+  "imageWidth": 640
+}

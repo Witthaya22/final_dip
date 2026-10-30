@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          146.7,
+          32.6
+        ],
+        [
+          636.5,
+          287.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_138.jpg",
+  "imageData": null,
+  "imageHeight": 424,
+  "imageWidth": 640
+}

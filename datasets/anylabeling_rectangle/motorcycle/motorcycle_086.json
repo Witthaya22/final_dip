@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "motorcycle",
+      "text": "",
+      "points": [
+        [
+          216.9,
+          152.6
+        ],
+        [
+          551.7,
+          335.8
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "motorcycle_086.jpg",
+  "imageData": null,
+  "imageHeight": 427,
+  "imageWidth": 640
+}

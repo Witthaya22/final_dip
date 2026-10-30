@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "boat",
+      "text": "",
+      "points": [
+        [
+          43.1,
+          460.0
+        ],
+        [
+          335.1,
+          632.6
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "boat_033.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 424
+}

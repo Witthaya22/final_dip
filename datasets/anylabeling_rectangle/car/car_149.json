@@ -1,0 +1,44 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          1.0,
+          273.9
+        ],
+        [
+          241.3,
+          435.1
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          541.6,
+          354.6
+        ],
+        [
+          640.0,
+          439.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "car_149.jpg",
+  "imageData": null,
+  "imageHeight": 440,
+  "imageWidth": 640
+}

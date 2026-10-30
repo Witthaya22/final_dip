@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          114.4,
+          72.8
+        ],
+        [
+          542.6,
+          434.2
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_135.jpg",
+  "imageData": null,
+  "imageHeight": 479,
+  "imageWidth": 640
+}

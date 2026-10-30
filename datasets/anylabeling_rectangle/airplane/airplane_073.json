@@ -1,0 +1,44 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          77.4,
+          117.8
+        ],
+        [
+          528.3,
+          291.8
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          55.4,
+          192.6
+        ],
+        [
+          181.1,
+          237.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_073.jpg",
+  "imageData": null,
+  "imageHeight": 429,
+  "imageWidth": 640
+}

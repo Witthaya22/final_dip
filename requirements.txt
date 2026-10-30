@@ -1,0 +1,8 @@
+# ไลบรารีที่ต้องใช้ทั้งโปรเจกต์ (เทรน + เว็บ)
+#   pip install -r requirements.txt
+ultralytics>=8.4.170     # YOLO (yolo26n / yolo26n-seg)
+fastapi>=0.110           # หลังบ้าน (REST API)
+uvicorn>=0.29            # ตัวรัน server ของ FastAPI
+python-multipart>=0.0.9  # ให้ FastAPI รับไฟล์อัปโหลดได้
+pillow                   # อ่านไฟล์ภาพ
+requests                 # ดาวน์โหลดภาพตอนสร้าง dataset (สคริปต์ 01)

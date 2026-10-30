@@ -1,0 +1,43 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "boat",
+      "text": "",
+      "points": [
+        [
+          2.9,
+          220.4
+        ],
+        [
+          265.6,
+          220.4
+        ],
+        [
+          279.2,
+          216.1
+        ],
+        [
+          276.4,
+          152.1
+        ],
+        [
+          2.2,
+          149.2
+        ],
+        [
+          0.8,
+          216.8
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "boat_146.jpg",
+  "imageData": null,
+  "imageHeight": 480,
+  "imageWidth": 640
+}

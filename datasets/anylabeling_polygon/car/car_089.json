@@ -1,0 +1,35 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          7.0,
+          4.9
+        ],
+        [
+          640.0,
+          3.9
+        ],
+        [
+          640.0,
+          100.3
+        ],
+        [
+          3.0,
+          122.4
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "polygon",
+      "flags": {}
+    }
+  ],
+  "imagePath": "car_089.jpg",
+  "imageData": null,
+  "imageHeight": 427,
+  "imageWidth": 640
+}

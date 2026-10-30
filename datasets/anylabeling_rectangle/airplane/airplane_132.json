@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          25.4,
+          0.0
+        ],
+        [
+          570.6,
+          342.7
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_132.jpg",
+  "imageData": null,
+  "imageHeight": 427,
+  "imageWidth": 640
+}

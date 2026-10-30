@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "car",
+      "text": "",
+      "points": [
+        [
+          188.6,
+          180.7
+        ],
+        [
+          640.0,
+          403.2
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "car_144.jpg",
+  "imageData": null,
+  "imageHeight": 480,
+  "imageWidth": 640
+}

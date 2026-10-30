@@ -1,0 +1,44 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          67.0,
+          96.7
+        ],
+        [
+          604.1,
+          290.1
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "airplane",
+      "text": "",
+      "points": [
+        [
+          123.5,
+          111.5
+        ],
+        [
+          234.1,
+          147.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "airplane_106.jpg",
+  "imageData": null,
+  "imageHeight": 426,
+  "imageWidth": 640
+}
